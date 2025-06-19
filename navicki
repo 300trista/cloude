@@ -1,350 +1,8 @@
-/* ========== CSS ПЕРЕМЕННЫЕ ========== */
-:root {
-    /* Основные цвета */
-    --primary-color: #2E3B61;
-    --primary-gradient: linear-gradient(90deg, #2E3B61, #2E3B61);
-    --white: #ffffff;
-    --text-primary: #202124;
-    
-    /* Фоновые цвета */
-    --bg-body: #eef2f7;
-    --bg-card: #ffffff;
-    --bg-row-even: #fafbfc;
-    --bg-row-header: #e3f2fd;
-    --bg-subsection: #f1f4f8;
-    
-    /* Цвета для границ */
-    --border-color: #d6dbe3;
-    --border-card: rgba(0,0,0,.08);
-    
-    /* Цвета уровней */
-    --level-basic: #2ecc71;
-    --level-pre-medium: #8bc34a;
-    --level-medium: #f1c40f;
-    --level-high: #ff9800;
-    --level-pre-expert: #ff5722;
-    --level-expert: #f44336;
-    
-    /* Цвета для Yes/No индикаторов */
-    --yes-bg: #e8f6ea;
-    --yes-color: #2e7d32;
-    --yes-border: #b8e6c6;
-    --no-color: #c2c6cc;
-    
-    /* Цвета для галочек */
-    --check-required: #2ecc71;
-    --check-not-required: #e74a3b;
-    --check-partial: #f6c23e;
-    
-    /* Размеры */
-    --max-width: 1280px;
-    --border-radius: 8px;
-    --border-radius-badge: 16px;
-    
-    /* Отступы */
-    --padding-body: 32px 16px;
-    --padding-header: 20px 28px;
-    --padding-cell: 10px 8px;
-    
-    /* Шрифты */
-    --font-family: 'Inter', Arial, sans-serif;
-    --font-size-base: 14px;
-    --font-size-small: 13px;
-    --font-size-tiny: 11px;
-    --font-size-header: 24px;
-    --font-size-icon: 28px;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-}
-
-/* ========== БАЗОВЫЕ СТИЛИ ========== */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: var(--padding-body);
-    background: var(--bg-body);
-    color: var(--text-primary);
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-}
-
-/* ========== КОНТЕЙНЕР / КАРТОЧКА ========== */
-.container,
-.card {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    background: var(--bg-card);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px var(--border-card);
-    overflow: hidden;
-}
-
-/* ========== ШАПКА ========== */
-.header,
-.card__header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: var(--padding-header);
-    background: var(--primary-gradient);
-    color: var(--white);
-}
-
-.header h2,
-.card__header-title {
-    margin: 0;
-    font-size: var(--font-size-header);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-}
-
-.header i,
-.card__header-icon {
-    font-size: var(--font-size-icon);
-}
-
-/* ========== ОБЕРТКА ТАБЛИЦЫ ========== */
-.table-wrapper,
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-}
-
-/* ========== ТАБЛИЦА ========== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--font-size-small);
-}
-
-th, td {
-    border: 1px solid var(--border-color);
-    padding: var(--padding-cell);
-    text-align: center;
-    vertical-align: middle;
-}
-
-/* Липкие заголовки */
-thead th {
-    position: sticky;
-    top: 0;
-    background: var(--bg-card);
-    z-index: 5;
-}
-
-/* Первая колонка липкая */
-table th:first-child,
-table td:first-child {
-    position: sticky;
-    left: 0;
-    background: var(--bg-card);
-    z-index: 2;
-}
-
-/* ========== СТИЛИ СТРОК ========== */
-/* Заголовки разделов */
-.section-header td,
-tr.section-header td {
-    background: var(--primary-color);
-    color: var(--white);
-    font-weight: var(--font-weight-semibold);
-    text-align: left;
-    padding-left: 12px;
-    letter-spacing: 0.3px;
-}
-
-/* Подзаголовки */
-.subsection-header td,
-tr.subsection-header td {
-    background: var(--bg-subsection);
-    font-weight: var(--font-weight-semibold);
-}
-
-/* Строка с позициями */
-.position-row td {
-    background: var(--bg-row-header);
-    font-weight: var(--font-weight-semibold);
-}
-
-/* Строка с опытом */
-.experience-row td {
-    background: var(--bg-subsection);
-    font-weight: var(--font-weight-semibold);
-}
-
-/* Первая колонка (название навыка) */
-.skill-name {
-    text-align: left;
-    padding-left: 15px !important;
-    font-weight: var(--font-weight-medium);
-}
-
-.role-description {
-    text-align: left;
-    font-weight: var(--font-weight-medium);
-}
-
-/* Чередование строк */
-tbody tr:nth-child(even):not(.section-header):not(.position-row):not(.experience-row):not(.subsection-header) td {
-    background: var(--bg-row-even);
-}
-
-/* Hover эффект */
-tbody tr:hover:not(.section-header):not(.position-row):not(.experience-row) {
-    background-color: rgba(46, 59, 97, 0.05);
-}
-
-/* ========== БЕЙДЖИ И ИНДИКАТОРЫ ========== */
-/* Базовый стиль для бейджей */
-.level-badge,
-.yes-badge,
-.deny-icon {
-    display: inline-block;
-    min-width: 64px;
-    border-radius: var(--border-radius-badge);
-    padding: 3px 10px;
-    font-size: var(--font-size-tiny);
-    font-weight: var(--font-weight-semibold);
-}
-
-/* Цветные уровни */
-.level-basic { background: var(--level-basic); color: var(--white); }
-.level-preMedium { background: var(--level-pre-medium); color: var(--white); }
-.level-medium { background: var(--level-medium); color: var(--white); }
-.level-high { background: var(--level-high); color: var(--white); }
-.level-preExpert { background: var(--level-pre-expert); color: var(--white); }
-.level-expert { background: var(--level-expert); color: var(--white); }
-
-/* Yes бейдж */
-.yes-badge {
-    background: var(--yes-bg);
-    color: var(--yes-color);
-    border: 1px solid var(--yes-border);
-}
-
-/* Deny иконка */
-.deny-icon {
-    color: var(--no-color);
-    font-weight: bold;
-    font-size: 16px;
-}
-
-/* Галочки */
-.checkmark {
-    font-size: 1.25rem;
-}
-
-.checkmark.required {
-    color: var(--check-required);
-}
-
-.checkmark.not-required {
-    color: var(--check-not-required);
-}
-
-.checkmark.partial {
-    color: var(--check-partial);
-}
-
-/* ========== КНОПКИ ========== */
-.btn {
-    display: block;
-    width: 100%;
-    margin: 4px 0;
-    padding: 6px 14px;
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    color: var(--white);
-    border-radius: 6px;
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: opacity 0.15s ease-in-out;
-    text-align: center;
-    font-size: var(--font-size-small);
-}
-
-.btn:hover {
-    opacity: 0.9;
-    text-decoration: none;
-    color: var(--white);
-}
-
-.btn i {
-    margin-right: 4px;
-}
-
-/* ========== СПЕЦИАЛЬНЫЕ СТИЛИ ========== */
-/* Главный заголовок таблицы */
-.main-title {
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    font-size: 20px;
-    background-color: transparent;
-}
-
-.subtitle {
-    text-align: center;
-    font-weight: var(--font-weight-semibold);
-    background-color: transparent;
-}
-
-/* Колонки */
-.material-col {
-    min-width: 120px;
-}
-
-.level-col {
-    min-width: 80px;
-    max-width: 80px;
-}
-
-/* ========== АДАПТИВНОСТЬ ========== */
-@media (max-width: 900px) {
-    body {
-        padding: 24px 8px;
-    }
-    
-    .header h2,
-    .card__header-title {
-        font-size: 20px;
-    }
-    
-    th, td {
-        padding: 8px 6px;
-    }
-    
-    .level-badge,
-    .yes-badge {
-        min-width: 56px;
-    }
-    
-    .level-col {
-        min-width: 60px;
-        max-width: 60px;
-    }
-    
-    .material-col {
-        min-width: 100px;
-    }
-}
-
-@media (max-width: 768px) {
-    .table-responsive {
-        border: 0;
-    }
-}
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="utf-8"/>
-    <title>Карта навичок CRMiUM Developer</title>
+    <title>Карта знань CRMiUM Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
     <!-- Google Font -->
@@ -353,241 +11,492 @@ tbody tr:hover:not(.section-header):not(.position-row):not(.experience-row) {
     <!-- Font Awesome для иконок -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     
-    <!-- Единый файл стилей -->
-    <link href="unified-styles.css" rel="stylesheet"/>
+    <style>
+        /* ========== CSS ПЕРЕМЕННЫЕ ========== */
+        :root {
+            /* Основные цвета */
+            --primary-color: #2E3B61;
+            --primary-gradient: linear-gradient(90deg, #2E3B61, #2E3B61);
+            --white: #ffffff;
+            --text-primary: #202124;
+            
+            /* Фоновые цвета */
+            --bg-body: #eef2f7;
+            --bg-card: #ffffff;
+            --bg-row-even: #fafbfc;
+            --bg-row-header: #e3f2fd;
+            --bg-subsection: #f1f4f8;
+            
+            /* Цвета для границ */
+            --border-color: #d6dbe3;
+            --border-card: rgba(0,0,0,.08);
+            
+            /* Цвета для галочек */
+            --check-required: #2ecc71;
+            --check-not-required: #e74a3b;
+            --check-partial: #f6c23e;
+            
+            /* Размеры */
+            --max-width: 1280px;
+            --border-radius: 8px;
+            
+            /* Отступы */
+            --padding-body: 32px 16px;
+            --padding-header: 20px 28px;
+            --padding-cell: 10px 8px;
+            
+            /* Шрифты */
+            --font-family: 'Inter', Arial, sans-serif;
+            --font-size-base: 14px;
+            --font-size-small: 13px;
+            --font-size-header: 24px;
+            --font-size-icon: 28px;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+        }
+
+        /* ========== БАЗОВЫЕ СТИЛИ ========== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: var(--padding-body);
+            background: var(--bg-body);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+        }
+
+        /* ========== КОНТЕЙНЕР / КАРТОЧКА ========== */
+        .card {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px var(--border-card);
+            overflow: hidden;
+        }
+
+        /* ========== ШАПКА ========== */
+        .card__header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: var(--padding-header);
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .card__header-icon {
+            font-size: var(--font-size-icon);
+        }
+
+        .card__header-title {
+            margin: 0;
+            font-size: var(--font-size-header);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+        }
+
+        /* ========== ОБЕРТКА ТАБЛИЦЫ ========== */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* ========== ТАБЛИЦА ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-size-small);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: var(--padding-cell);
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Липкие заголовки */
+        thead th {
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            z-index: 5;
+        }
+
+        /* Первая колонка липкая */
+        table th:first-child,
+        table td:first-child {
+            position: sticky;
+            left: 0;
+            background: var(--bg-card);
+            z-index: 2;
+        }
+
+        /* ========== СТИЛИ СТРОК ========== */
+        /* Заголовки разделов */
+        .section-header td {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: var(--font-weight-semibold);
+            text-align: left;
+            padding-left: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Подзаголовки */
+        .subsection-header td {
+            background: var(--bg-subsection);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* Первая колонка (название навыка) */
+        .skill-name {
+            text-align: left;
+            padding-left: 15px !important;
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Чередование строк */
+        tbody tr:nth-child(even):not(.section-header):not(.subsection-header) td {
+            background: var(--bg-row-even);
+        }
+
+        /* Hover эффект */
+        tbody tr:hover:not(.section-header):not(.subsection-header) {
+            background-color: rgba(46, 59, 97, 0.05);
+        }
+
+        /* ========== ГАЛОЧКИ ========== */
+        .checkmark {
+            font-size: 1.25rem;
+        }
+
+        .checkmark.required {
+            color: var(--check-required);
+        }
+
+        .checkmark.not-required {
+            color: var(--check-not-required);
+        }
+
+        .checkmark.partial {
+            color: var(--check-partial);
+        }
+
+        /* ========== КНОПКИ ========== */
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 4px 0;
+            padding: 6px 14px;
+            background-color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            color: var(--white);
+            border-radius: 6px;
+            font-weight: var(--font-weight-semibold);
+            text-decoration: none;
+            transition: opacity 0.15s ease-in-out;
+            text-align: center;
+            font-size: var(--font-size-small);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .btn i {
+            margin-right: 4px;
+        }
+
+        /* ========== СПЕЦИАЛЬНЫЕ СТИЛИ ========== */
+        /* Главный заголовок таблицы */
+        .main-title {
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            font-size: 20px;
+            background-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-weight: var(--font-weight-semibold);
+            background-color: transparent;
+        }
+
+        /* Колонки */
+        .material-col {
+            min-width: 120px;
+        }
+
+        .level-col {
+            min-width: 80px;
+            max-width: 80px;
+        }
+
+        /* ========== АДАПТИВНОСТЬ ========== */
+        @media (max-width: 900px) {
+            body {
+                padding: 24px 8px;
+            }
+            
+            .card__header-title {
+                font-size: 20px;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+            
+            .level-col {
+                min-width: 60px;
+                max-width: 60px;
+            }
+            
+            .material-col {
+                min-width: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="card">
     <!-- HEADER -->
     <div class="card__header">
-        <span class="card__header-icon">📖</span>
-        <span class="card__header-title">Карта навичок CRMiUM Developer</span>
+        <span class="card__header-icon"><i class="fas fa-map"></i></span>
+        <h1 class="card__header-title">Карта знань CRMiUM Developer</h1>
     </div>
 
     <!-- TABLE -->
     <div class="table-wrapper">
         <table>
+            <thead>
+                <tr>
+                    <th class="main-title" colspan="10">Карта знань CRMiUM DEV</th>
+                </tr>
+                <tr>
+                    <th colspan="2"></th>
+                    <th class="subtitle" colspan="8">Що треба знати, щоб претендувати на позицію:</th>
+                </tr>
+                <tr>
+                    <th class="skill-name">Знання, які повинні бути у Dev</th>
+                    <th class="material-col">Інформація для вивчення:</th>
+                    <th class="level-col">Trainee</th>
+                    <th class="level-col">Junior</th>
+                    <th class="level-col">Upper Junior</th>
+                    <th class="level-col">Pre-Middle</th>
+                    <th class="level-col">Middle</th>
+                    <th class="level-col">Strong Middle</th>
+                    <th class="level-col">Senior</th>
+                    <th class="level-col">TL</th>
+                </tr>
+            </thead>
             <tbody>
-                <!-- Позиции -->
-                <tr class="position-row">
-                    <td>Позиція</td>
-                    <td>Trainee</td>
-                    <td>Junior</td>
-                    <td>Upper&nbsp;Junior</td>
-                    <td>Pre-Middle</td>
-                    <td>Middle</td>
-                    <td>Strong&nbsp;Middle</td>
-                    <td>Senior</td>
-                    <td>TL</td>
-                </tr>
-
-                <!-- Роль -->
-                <tr>
-                    <td class="skill-name">Роль CRMiUM Dev</td>
-                    <td class="role-description">Виконання базових завдань, вивчення основних технологій, допомога команді у простих завданнях</td>
-                    <td class="role-description">Виконання завдань під контролем наставника. Вивчення документації та існуючого коду. Написання Deluge скриптів. Використання Zoho CRM API.</td>
-                    <td class="role-description">Виконання самостійних та більш складних завдань. Розширене використання Deluge, Client Scripts. Робота з API та обробка даних.</td>
-                    <td class="role-description">Створення складних Deluge сценаріїв, Client Scripts, Widgets. Пошук та застосування найефективніших рішень для задач розробки та інтеграцій.</td>
-                    <td class="role-description">Створення складних та оптимізованих Deluge скриптів, Client Scripts, Widgets. Інтеграція з різними продуктами Zoho. Розробка архітектури додатків.</td>
-                    <td class="role-description">Ведення складних проектів, консалтинг. Проектування та реалізація комплексних інтеграцій. Впровадження найкращих практик.</td>
-                    <td class="role-description">Архітектурне проектування та оптимізація складних систем. Створення масштабованих Deluge сценаріїв. Використання сучасних патернів проектування.</td>
-                    <td class="role-description">Лідерство та управління командою розробників. Проектування архітектури на високому рівні. Управління великими проектами та інтеграціями.</td>
-                </tr>
-
-                <!-- 1. ZOHO Development -->
+                <!-- 1. Front End -->
                 <tr class="section-header">
-                    <td colspan="9">1.&nbsp;ZOHO Development</td>
+                    <td colspan="10">1. Front End</td>
                 </tr>
                 
-                <tr>
-                    <td class="skill-name">1.1&nbsp;Deluge Script</td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">1.2&nbsp;Client Script</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">1.3&nbsp;Widgets Development</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-preExpert">PRE-EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">1.4&nbsp;Zoho Sigma</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">1.5&nbsp;Zoho Catalyst</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
+                <tr class="subsection-header">
+                    <td class="skill-name">1.1 Основи програмування та алгоритмізації</td>
+                    <td>
+                        <a class="btn" href="https://scratch.mit.edu/" target="_blank">
+                            <i class="fas fa-link"></i> Scratch
+                        </a>
+                        <a class="btn" href="https://online.fliphtml5.com/nndfq/yoqq/#p=34" target="_blank">
+                            <i class="fas fa-link"></i> Підручник
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
                 </tr>
 
-                <!-- 2. Common Development -->
+                <!-- 1.2 Веб-технології -->
                 <tr class="section-header">
-                    <td colspan="9">2.&nbsp;Common Development</td>
+                    <td colspan="10">1.2 Веб-технології</td>
                 </tr>
                 
                 <tr>
-                    <td class="skill-name">2.1&nbsp;Програмування та алгоритмізація</td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">2.2&nbsp;Front-End Розробка</td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">2.3&nbsp;Back-End Розробка</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
+                    <td class="skill-name">1.2.1 HTML</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/html/default.asp" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
                 </tr>
 
-                <!-- 3. CI/CD -->
+                <tr>
+                    <td class="skill-name">1.2.2 CSS</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/css/default.asp" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <tr>
+                    <td class="skill-name">1.2.3 CSS препроцесори (Sass, LESS)</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/sass/default.asp" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                        <a class="btn" href="https://lesscss.org/" target="_blank">
+                            <i class="fas fa-link"></i> Lesscss
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <!-- 1.3 JavaScript Basic -->
                 <tr class="section-header">
-                    <td colspan="9">3.&nbsp;CI/CD</td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">3.1&nbsp;Version Control Systems (GIT)</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
+                    <td colspan="10">1.3 JavaScript Basic</td>
                 </tr>
 
-                <!-- 4. ZOHO Products -->
+                <tr>
+                    <td class="skill-name">1.3.1 Змінні та типи даних</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/js/js_variables.asp" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <tr>
+                    <td class="skill-name">1.3.8 Асинхронне програмування (Promises, Async/Await, Fetch API)</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/js/js_asynchronous.asp" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                    </td>
+                    <td><i class="fas fa-times-circle checkmark not-required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <!-- 1.5 TypeScript -->
                 <tr class="section-header">
-                    <td colspan="9">4.&nbsp;ZOHO Products</td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">4.1&nbsp;Zoho CRM</td>
-                    <td><span class="level-badge level-basic">BASIC</span></td>
-                    <td><span class="level-badge level-preMedium">PRE-MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-medium">MEDIUM</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-high">HIGH</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
-                    <td><span class="level-badge level-expert">EXPERT</span></td>
+                    <td colspan="10">1.5 TypeScript</td>
                 </tr>
 
-                <!-- 5. Consulting -->
+                <tr>
+                    <td class="skill-name">1.5.1 Встановлення та налаштування</td>
+                    <td>
+                        <a class="btn" href="https://www.w3schools.com/typescript/typescript_getstarted.php" target="_blank">
+                            <i class="fas fa-link"></i> W3Schools
+                        </a>
+                        <a class="btn" href="https://www.typescriptlang.org/" target="_blank">
+                            <i class="fas fa-link"></i> Typescriptlang
+                        </a>
+                    </td>
+                    <td><i class="fas fa-times-circle checkmark not-required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark partial"></i></td>
+                    <td><i class="fas fa-check-circle checkmark partial"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <!-- 2. Back End -->
                 <tr class="section-header">
-                    <td colspan="9">5.&nbsp;Консалтинг і розвиток</td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">5.1&nbsp;Проведення Product Research</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">5.2&nbsp;Консалтинг для клієнта</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                </tr>
-                
-                <tr>
-                    <td class="skill-name">5.3&nbsp;Розвиток команди (Mentor)</td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="deny-icon">–</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
-                    <td><span class="yes-badge">Yes</span></td>
+                    <td colspan="10">2. Back End</td>
                 </tr>
 
-                <!-- Опыт -->
-                <tr class="experience-row">
-                    <td>Приблизний досвід роботи</td>
-                    <td>0 m</td>
-                    <td>3 m – 6 m</td>
-                    <td>9 m – 1 year</td>
-                    <td>1 year – 2 years</td>
-                    <td>1 year – 2 years</td>
-                    <td>&gt; 2 years</td>
-                    <td>&gt; 2 years</td>
-                    <td>&gt; 2.5 years</td>
+                <tr class="subsection-header">
+                    <td class="skill-name">2.1 Принципи ООП</td>
+                    <td>
+                        <a class="btn" href="https://habr.com/ru/companies/ruvds/articles/665290/" target="_blank">
+                            <i class="fas fa-link"></i> Habr
+                        </a>
+                    </td>
+                    <td><i class="fas fa-times-circle checkmark not-required"></i></td>
+                    <td><i class="fas fa-times-circle checkmark not-required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
                 </tr>
+
+                <!-- 7. ZOHO Development -->
+                <tr class="section-header">
+                    <td colspan="10">7. ZOHO Development</td>
+                </tr>
+
+                <tr class="subsection-header">
+                    <td class="skill-name">7.1 Основи Deluge</td>
+                    <td>
+                        <a class="btn" href="https://deluge.zoho.com/learndeluge#Welcome!" target="_blank">
+                            <i class="fas fa-link"></i> Deluge
+                        </a>
+                        <a class="btn" href="https://www.zoho.com/developer/help/scripting/language-basics.html" target="_blank">
+                            <i class="fas fa-link"></i> Zoho
+                        </a>
+                    </td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                    <td><i class="fas fa-check-circle checkmark required"></i></td>
+                </tr>
+
+                <!-- И так далее для остальных разделов... -->
             </tbody>
         </table>
     </div>
