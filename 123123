@@ -277,6 +277,9 @@
             .material-col {
                 min-width: 100px;
             }
+thead th {
+    background-color: #e3f2fd !important;
+}
         }
     </style>
 </head>
