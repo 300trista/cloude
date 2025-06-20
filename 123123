@@ -292,20 +292,20 @@
     <!-- TABLE -->
     <div class="table-wrapper">
         <table>
-            <thead>
+           <thead>
                 <tr>
-                    <th class="skill-name">Що треба знати, щоб претендувати на позицію:</th>
-                    <th class="material-col">Інформація для вивчення:</th>
-                    <th class="level-col">Trainee</th>
-                    <th class="level-col">Junior</th>
-                    <th class="level-col">Upper Junior</th>
-                    <th class="level-col">Pre-Middle</th>
-                    <th class="level-col">Middle</th>
-                    <th class="level-col">Strong Middle</th>
-                    <th class="level-col">Senior</th>
-                    <th class="level-col">TL</th>
+                    <th class="skill-name" style="background-color: #e3f2fd;">Що треба знати, щоб претендувати на позицію:</th>
+                    <th class="material-col" style="background-color: #e3f2fd;">Інформація для вивчення:</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Trainee</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Junior</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Upper Junior</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Pre-Middle</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Middle</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Strong Middle</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">Senior</th>
+                    <th class="level-col" style="background-color: #e3f2fd;">TL</th>
                 </tr>
-            </thead> 
+            </thead>
             <tbody>
 <!-- 1. Front End -->
 </td>
