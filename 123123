@@ -55,6 +55,9 @@
             --font-weight-semibold: 600;
             --font-weight-bold: 700;
         }
+thead th {
+    background-color: #e3f2fd !important;
+}
 
         /* ========== БАЗОВЫЕ СТИЛИ ========== */
         * {
