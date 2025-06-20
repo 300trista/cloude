@@ -292,7 +292,7 @@
     <!-- TABLE -->
     <div class="table-wrapper">
         <table>
-           <thead>
+            <thead>
                 <tr>
                     <th class="skill-name" style="background-color: #e3f2fd;">Що треба знати, щоб претендувати на позицію:</th>
                     <th class="material-col" style="background-color: #e3f2fd;">Інформація для вивчення:</th>
@@ -305,7 +305,7 @@
                     <th class="level-col" style="background-color: #e3f2fd;">Senior</th>
                     <th class="level-col" style="background-color: #e3f2fd;">TL</th>
                 </tr>
-            </thead>
+            </thead> 
             <tbody>
 <!-- 1. Front End -->
 </td>
