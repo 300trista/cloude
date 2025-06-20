@@ -55,9 +55,6 @@
             --font-weight-semibold: 600;
             --font-weight-bold: 700;
         }
-thead th {
-    background-color: #e3f2fd !important;
-}
 
         /* ========== БАЗОВЫЕ СТИЛИ ========== */
         * {
@@ -125,11 +122,11 @@ thead th {
             vertical-align: middle;
         }
 
-        /* Липкие заголовки */
+        /* Липкие заголовки с новым цветом фона */
         thead th {
             position: sticky;
             top: 0;
-            background: var(--bg-card);
+            background: #e3f2fd;
             z-index: 5;
         }
 
@@ -140,6 +137,12 @@ thead th {
             left: 0;
             background: var(--bg-card);
             z-index: 2;
+        }
+        
+        /* Специальный стиль для первой ячейки заголовка */
+        thead th:first-child {
+            background: #e3f2fd;
+            z-index: 6;
         }
 
         /* Заголовок раздела в первой колонке */
@@ -297,16 +300,16 @@ thead th {
         <table>
             <thead>
                 <tr>
-                    <th class="skill-name" style="background-color: #e3f2fd;">Що треба знати, щоб претендувати на позицію:</th>
-                    <th class="material-col" style="background-color: #e3f2fd;">Інформація для вивчення:</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Trainee</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Junior</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Upper Junior</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Pre-Middle</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Middle</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Strong Middle</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">Senior</th>
-                    <th class="level-col" style="background-color: #e3f2fd;">TL</th>
+                    <th class="skill-name">Що треба знати, щоб претендувати на позицію:</th>
+                    <th class="material-col">Інформація для вивчення:</th>
+                    <th class="level-col">Trainee</th>
+                    <th class="level-col">Junior</th>
+                    <th class="level-col">Upper Junior</th>
+                    <th class="level-col">Pre-Middle</th>
+                    <th class="level-col">Middle</th>
+                    <th class="level-col">Strong Middle</th>
+                    <th class="level-col">Senior</th>
+                    <th class="level-col">TL</th>
                 </tr>
             </thead> 
             <tbody>
